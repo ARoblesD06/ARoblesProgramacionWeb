@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layaout"
+      layout:decorate="~{layout}">
+    <head>
+        <title>Registro de Inmueble</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body layout:fragment="body">
+    <center>
+        <h1>Registro de Servicios</h1>
+    </center>
+    <form th:action="@{/Servicios/form}" method="post" th:object="${Servicio}"  action="procesar_registro">
+        <input type="hidden" th:field="*{idservicio}">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" autocomplete="off" required th:field="*{nombre}" oninput="validarInput(this);">
+        <input type="submit" value="Registrarse">
+    </form>
+</body>
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+</style>

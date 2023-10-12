@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layaout"
+    layout:decorate="~{layout}">
+    <head>
+        <title>Tipo de Servicios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body layout:fragment="body">
+    <center>
+        <h1>Servicios</h1>
+    </center>
+    <br>
+    <div class="container">
+        <div class="row">
+            <a th:href="@{/Servicios/form/{idservicio}(idservicio=0)}"   class="btn btn-success">Agregar</a>
+        </div>
+        </br>
+        <table id="myTable" class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Eliminar</th>
+                    <th scope="col">IdServicio</th>
+                    <th scope="col">Nombre</th>              
+                    <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <tr tr th:each="Servicio : ${servicios}">
+                    <td> 
+                        <a th:href="@{/Servicios/eliminar/{idservicio}(idservicio=${Servicio.idservicio})}" class="btn btn-danger">
+                            <i class="bi bi-trash-fill"></i>
+                        </a>
+                    </td>
+                    <td th:text="${Servicio.idservicio}"></td>
+                    <td th:text="${Servicio.nombre}"></td>
+
+                    <td>
+                        <a th:href="@{/Servicios/form/{idservicio}(idservicio=${Servicio.idservicio})}" class="btn btn-warning">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>   
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+
+</script>

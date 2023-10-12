@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Hola mundo</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+    
+    <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">IdUsuario</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Contraseña</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">CURP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.idusuario}"></td>
+                    <td th:text="${usuario.nobre}"></td>
+                    <td th:text="${usuario.apellidopaterno}"></td>
+                    <td th:text="${usuario.apellidomaterno}"></td>
+                    <td th:text="${usuario.email}"></td>
+                    <td th:text="${usuario.password}"></td>
+                    <td th:text="${usuario.fechanacimiento}"></td>
+                    <td th:text="${usuario.sexo}"></td>
+                    <td th:text="${usuario.telefono}"></td>
+                    <td th:text="${usuario.celular}"></td>
+                    <td th:text="${usuario.curp}"></td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
